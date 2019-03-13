@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Github Replica</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'index' %}">Github Replica</a>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 mx-auto">
+        <div class="card" style="width: 16rem; border: none; margin-top: 2.2em">
+          <img class="card-img-top" src="https://cdn1.iconfinder.com/data/icons/smallicons-logotypes/32/github-512.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Hey</h5>
+            {% if not complete %}
+              <p class="card-text">By pressing this button you will get your own instance of this app source code!</p>
+              <p class="card-text">Make sure you have github account first.</p>
+              <div style="text-align:center;"><a href="{% url 'social:begin' 'github' %}" class="btn btn-secondary">Replicate</a></div>
+            {% else %}
+              <p>It's done! Take a look at your new repo using this link:</p>
+              <p><a href="{{ url }}">{{ url }}</a></p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
